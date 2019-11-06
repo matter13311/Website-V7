@@ -1,0 +1,350 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+.top-nav{
+	z-index: 2;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	min-height: 8vh;
+	background-color: transparent;
+	font-family: 'Open Sans Condensed', sans-serif;
+	transition: all ease 0.5s;
+}
+
+.top-nav-modified{
+	transition: all ease 0.5s;
+	padding: 25px 10px;
+	background-color: #FFFFFF;
+
+}
+
+.logo-modified{
+	color: #2C2C2C;
+}
+
+
+
+
+.logo{
+	color: #F4F4F4;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+	font-size: 25px;
+}
+.nav-links{
+	/* flex, space-around and width all are essential in making
+	the nav bar ul items display the way they are */
+	display: flex;
+	justify-content: space-around;
+	width: 35%;
+}
+
+.nav-links li{
+
+	list-style: none;/*gets rid of the bullet points*/
+}
+
+
+.nav-links a{
+	color: #F4F4F4;
+	text-decoration: none;
+	letter-spacing: 1.5px;
+	font-weight: bold;
+	font-size: 17px;
+	transition: all 0.7s ease;
+}
+
+.nav-links a:hover{
+	border-radius: 40px;
+	border-style: solid;
+	border-color: #6D6D6D;
+	padding: 5px;
+	color: #6D6D6D;
+}
+
+.burger-icon{
+	display: none;
+	cursor: pointer;
+}
+
+.burger-icon div{
+	width: 25px;
+	height:3px;
+	background-color: #F4F4F4;
+	margin:5px;
+	transition: all 0.3s ease;
+}
+
+
+@media screen and (max-width: 1000px){/*after the window is resized to a certain amount
+	it will increase width between ul items so they don't look too squished*/
+	.nav-links{
+		width: 55%;
+	}
+}
+
+
+@media screen and (max-width: 768px){
+	body{
+		overflow-x: hidden; /*this prevents the x coord scroll bar from appearing*/
+	}
+	.top-nav{
+	transition: all ease 0.5s;
+	padding: 25px 10px;
+	background-color: #FFFFFF;
+
+	}
+	.nav-links{
+		opacity: 0;
+		position: absolute;
+		left: 0px;
+		height: 92vh;
+		top: 8vh;
+		background-color: #FFFFFF;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 100%; /*add someway to blur the background*/
+		height: 170px;
+		transform: translateX(100%);/*this will push the ul items off the screen*/
+		transition: transform 0.5s ease-in;
+	}	
+	.logo{
+	color: black;
+	}
+	.burger-icon div{
+	background-color: black;
+}
+	.nav-links li{
+		opacity: 0;
+	}
+	.nav-links a{
+		color: black;
+	}
+	.burger-icon{
+		display: block;
+	}
+
+
+}
+
+.nav-active{
+	transform: translateX(0%);
+	opacity: 1;
+	
+}
+
+@keyframes navLinkFade{
+	from{
+		opacity: 0;
+		transform: translateX(50px);
+	}
+	to{	
+		opacity: 1;
+		transform: translateX(0px);
+	}
+}
+
+
+.toggle .line1{
+	transform: rotate(-45deg) translate(-5px, 6px);
+
+}
+.toggle .line2{
+	opacity: 0;
+}
+.toggle .line3{
+	transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/*------------- Under Nav Bar---------------*/
+
+#home{
+	height: 100vh;
+	background: linear-gradient(#B5B5B5,#F3F3F3);
+
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+#home .user-box{
+	opacity: 0.9;
+	top:50%;
+	left:50%;
+	transform: translate(-50%,-50%);
+	position: absolute;
+	text-align: center;
+}
+
+.user-box img{
+	transition: all 1.5s ease;
+}
+
+.hello-text{
+	opacity: 0;
+	position: absolute;
+	top:65%;
+	font-family: 'Lora', serif;
+	color: #949494;
+	text-transform: uppercase;
+	font-size: 60px;
+	letter-spacing: 15px;
+	transition: all 1.5s ease;
+}
+
+.random-text{
+	font-size: 12px;
+	opacity: 0;
+	transition: all 1.5s ease;
+	position: absolute;
+	top: 90%;
+}
+
+/**--------------ABOUT INFO----------------------**/
+
+main{
+	font-family: 'Raleway', sans-serif;
+	line-height: 50px;
+	font-size: 20px;
+	margin:auto;
+  max-width: 90%;
+  text-align: justify;
+  width: 75%;
+  border: 1px solid gray;
+  padding: 2em;
+  text-align: justify;
+}
+
+main p{
+		line-height: 35px;
+		font-size: 19px;
+		color: #0D0D0D;
+}
+
+
+
+/**----------------------VIEW ITEM HOVER EFFECTS--------------------**/
+
+.work-area{
+	position: relative;
+	width: 1440px;
+	margin: 0 auto;
+}
+
+
+.view {
+    width: 460px;
+    height: 330px;
+    margin: 10px;
+    float: left;
+    border: 10px solid #fff;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    box-shadow: 1px 1px 2px #e6e6e6;
+    cursor: default;
+    /**background: #fff url(https://tympanus.net/Tutorials/OriginalHoverEffects/images/bgimg.jpg) no-repeat center center**/
+}
+.view .mask, .view .content {
+    width: 460px;
+    height: 330px;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+}
+.view img {
+    display: block;
+    position: relative
+}
+.view h2 {
+	font-family: 'Raleway', serif;
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    font-size: 25px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    margin: 20px 0 0 0
+}
+.view p {
+    font-family: 'Raleway', serif;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 20px;
+    position: relative;
+    color: #fff;
+    padding: 10px 60px 20px;
+    text-align: center
+    margin: 5px 5px 5px 5px;
+}
+.view a.info {
+	font-family: 'Raleway', serif;
+    display: inline-block;
+    text-decoration: none;
+    padding: 7px 14px;
+    background: #000;
+    color: #fff;
+    text-transform: uppercase;
+    box-shadow: 0 0 1px #000
+}
+.view a.info:hover {
+    box-shadow: 0 0 5px #000
+}
+/* view first */
+.view-first img {
+   transition: all 0.2s linear;
+}
+.view-first .mask {
+   filter: alpha(opacity=0);
+   opacity: 0;
+   background-color: #2f2f2fb3;   /**rgba(219,127,8, 0.7);   controls background color on hover**/
+   transition: all 0.4s ease-in-out;
+}
+.view-first h2 {
+   transform: translateY(-100px);
+   filter: alpha(opacity=0);
+   opacity: 0;
+   transition: all 0.2s ease-in-out;
+}
+.view-first p {
+   transform: translateY(100px);
+   filter: alpha(opacity=0);
+   opacity: 0;
+   transition: all 0.2s linear;
+}
+.view-first:hover img { /**controls the zoom on hover**/
+   transform: scale(1.1,1.1);
+}
+.view-first a.info {
+   filter: alpha(opacity=0);   
+   opacity: 0;
+   transition: all 0.2s ease-in-out;
+}
+.view-first:hover .mask {
+   filter: alpha(opacity=100);
+   opacity: 1;
+}
+.view-first:hover h2, .view-first:hover p, .view-first:hover a.info {
+   filter: alpha(opacity=100);
+   opacity: 1;
+   transform: translateY(0px);
+}
+.view-first:hover p {
+   transition-delay: 0.1s;
+}
+.view-first:hover a.info {
+   transition-delay: 0.2s;
+}
